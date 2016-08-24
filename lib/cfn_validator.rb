@@ -1,9 +1,13 @@
 require 'json'
 require 'contracts'
-include Contracts
+require_relative './cfn_validator/global'
+require_relative './cfn_validator/parameters'
 
 module CfnValidator
-  ParametersType = {}
+  include Contracts
+  include Parameters
+
+  ParametersType = HashOf[ResourceNameType, ParameterType]
   MappingsType = {}
   ConditionalType = {}
   OutputsType = {}
