@@ -1,0 +1,11 @@
+---
+base:
+  image: ruby:2.3
+  volumes:
+    - ".:/app"
+    - "$HOME/.gem:/root/.gem"
+  working_dir: /app
+  environment:
+    - GEM_HOME=/root/.gem
+    - GEM_PATH=/root/.gem
+    - BUNDLE_PATH=/root/.gem
