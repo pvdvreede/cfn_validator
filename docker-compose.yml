@@ -9,3 +9,4 @@ base:
     - GEM_HOME=/root/.gem
     - GEM_PATH=/root/.gem
     - BUNDLE_PATH=/root/.gem
+    - PATH=$PATH:/root/.gem/bin
