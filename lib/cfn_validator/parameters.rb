@@ -6,11 +6,6 @@ module CfnValidator
     include Contracts
     include Global
 
-    StringNumberOrNumber = Or[Num, -> (val) { !!(/^[0-9]+$/ =~ val) }]
-    StringBoolOrBool = Or[Bool, -> (val) { !!(/^(true|false)$/i =~ val) }]
-
-    ParameterNameType = -> (val) { !!(/^[A-Za-z0-9]+$/ =~ val) }
-
     ParameterTypeType = Enum[
       "String",
       "Number",
