@@ -12,7 +12,7 @@ describe 'Validating a JSON file' do
 
   Dir.glob(FIXTURES_PATH + "/*").each do |f|
     it "returns true for a valid cloudformation #{f}" do
-      expect(CfnValidator.validate_from_json(f)).to eq true
+      expect(CfnValidator.validate_from_json(File.read(f))).to eq true
     end
   end
 

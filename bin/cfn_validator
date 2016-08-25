@@ -1,0 +1,26 @@
+#! /usr/bin/env ruby
+
+$LOAD_PATH << File.expand_path("../../lib", __FILE__)
+
+require 'optparse'
+require 'cfn_validator'
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: cfn_validator [OPTIONS] <Cloudformation file>"
+
+  opts.separator "Options:"
+
+  opts.on("-w", "--warn", "Convert errors into warnings only.") do |w|
+    options[:warn] = w
+  end
+
+  opts.on_tail("-h", "--help", "Show this message") do
+    puts opts
+    exit 1
+  end
+end.parse!
+
+if !CfnValidator.validate_from_json(ARGF.read) && !options[:warn]
+  exit 1
+end

@@ -22,8 +22,8 @@ module CfnValidator
     "Resources" => {}
   ]
 
-  def self.validate_from_json(path)
-    validate(JSON.parse(File.read(path)))
+  def self.validate_from_json(json_string)
+    validate(JSON.parse(json_string))
   end
 
   def self.validate(cfn_hash)
